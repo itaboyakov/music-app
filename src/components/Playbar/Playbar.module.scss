@@ -1,0 +1,87 @@
+.playbar {
+    position: fixed;
+    background-color: #9340fe;
+  
+    width: 100vw;
+    height: 70px;
+  
+    left: 0;
+    bottom: 0;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    gap: 30px;
+  
+    & > .togglePlay {
+      transform: scale(120%) !important;
+    }
+  
+    & > p {
+      font-size: 14px;
+    }
+  
+    & * {
+      color: white !important;
+    }
+}
+.info_block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 50vw;
+}
+.preview {
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+}
+.playbtn {
+    width: 20px;
+}
+.credits {
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    flex: 2;
+    gap: 4px;
+    letter-spacing: 2px;
+
+    & > p {
+        font-size: 14px;
+    }
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-basis: 600px;
+    flex: 4;
+}
+
+@media only screen and (max-width: 800px) {
+    .playbar {
+        gap: 10px;
+        padding: 5px 10px;
+    }
+    .info_block {
+        flex-direction: column;
+        gap: 4px;
+        height: 70px;
+        width: 80vw;
+        justify-content: stretch;
+    }
+    .slider {
+        width: 65vw;
+    }
+    .credits {
+        width: 60vw;
+        align-items: center;
+    }
+}

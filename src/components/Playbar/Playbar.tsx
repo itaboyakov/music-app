@@ -12,7 +12,7 @@ const TimeControls = () => {
     const [currentTime, setCurrentTime] = useState(0);
     const formatedCurrentTime = secondsToMMSS(currentTime);
     const sliderCurrentTime = Math.round(currentTime / duration * 100);
-    const handlerChangeCurrentTime = (event: Event, value: number | number[]) => {
+    const handlerChangeCurrentTime = (_: Event, value: number | number[]) => {
         if (Array.isArray(value)) value = value[0];
         const time = Math.round(value / 100 * duration);
         setCurrentTime(time);

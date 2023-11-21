@@ -4,10 +4,15 @@ import { TrackType } from "../types";
 
 const audio = new Audio(trackList[0].src);
 
-export const AudioContext = createContext({});
+export const AudioContext = createContext({
+    audio,
+    currentTrack: trackList[0],
+    isPlaying: false,
+    handleToggleAudio: (_: TrackType) => {}
+});
 
-const AudioProvider = ({ children }) => {
-    const [currentTrack, setCurrentTrack] = useState(false);
+const AudioProvider = ({ children }: {children: React.ReactNode}) => {
+    const [currentTrack, setCurrentTrack] = useState(trackList[0]);
     const [isPlaying, setPlaying] = useState(false);
 
     const handleToggleAudio = (track: TrackType) => {

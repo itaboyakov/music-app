@@ -68,20 +68,34 @@
 @media only screen and (max-width: 800px) {
     .playbar {
         gap: 10px;
-        padding: 5px 10px;
+        padding: 10px;
+        width: 100vw;
+        box-sizing: border-box;
     }
     .info_block {
         flex-direction: column;
-        gap: 4px;
-        height: 70px;
+        gap: 0px;
+        height: 10vh;
         width: 80vw;
         justify-content: stretch;
     }
     .slider {
         width: 65vw;
+        flex: 1;
+        height: 4vh;
     }
     .credits {
         width: 60vw;
         align-items: center;
+        gap: 2px;
+        height: 3vh;
+        margin-top: 10px;
+        flex: 1;
+        & > b {
+            font-size: 12px;
+        }
+        & > p {
+            font-size: 12px;
+        }
     }
 }

@@ -39,7 +39,8 @@ const Playbar = () => {
     const { currentTrack, handleToggleAudio, isPlaying } = useContext(AudioContext);
     const { preview, title, artists, duration } = currentTrack;
     const formatedDuration = secondsToMMSS(duration);
-
+    const desctopDeviceType = window.innerWidth > 800;
+    console.log(desctopDeviceType);
     return (
          currentTrack ? 
             (<div className={styles.playbar}>
@@ -47,16 +48,30 @@ const Playbar = () => {
                 <IconButton onClick={() => handleToggleAudio(currentTrack)} className={styles.playbtn}>
                     {isPlaying ? <Pause/> : <PlayArrow/>}
                 </IconButton>
-                <div className={styles.info_block}>
-                    <div className={styles.credits}>
-                        <b>{title}</b>
-                        <p>{artists}</p>
-                    </div>
-                    <div className={styles.slider}>
-                        <TimeControls/>
-                        <p>{formatedDuration}</p>
-                    </div>
-                </div>
+                {
+                    desctopDeviceType ?
+                        <div className={styles.info_block}>
+                            <div className={styles.credits}>
+                                <b>{title}</b>
+                                <p>{artists}</p>
+                            </div>
+                            <div className={styles.slider}>
+                                <TimeControls/>
+                                <p>{formatedDuration}</p>
+                            </div>
+                        </div>
+                    :
+                        <div className={styles.info_block}>
+                            <div className={styles.credits}>
+                                <p>{artists}</p>
+                                <b>{title}</b>
+                            </div>
+                            <div className={styles.slider}>
+                                <TimeControls/>
+                                <p>{formatedDuration}</p>
+                            </div>
+                        </div>
+                }
             </div>) : (<></>)
     );
 };
